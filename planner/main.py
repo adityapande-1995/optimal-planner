@@ -39,6 +39,23 @@ class LQR_RRT_planner:
 
             self.start = [0,0,90-2.0,0,0,0] ; self.goal = [b,0,2.0,0,0,0]
 
+        elif workspace == 4:
+            self.path_rects = np.array([
+                [[0,0],[a,0],[a,b],[0,b]],
+                [[0,b-a],[a,b],[b,a],[b-a,0]]
+            ])
+
+            self.start = [0,0,90-2.0,0,0,0] ; self.goal = [b,a,2.0,0,0,0]
+
+        elif workspace == 5:
+            self.path_rects = np.array([
+                [[0,0],[a,0],[a,b],[0,b]],
+                [[0,b-a],[a,b],[b,a],[b-a,0]],
+                [[b-a,0],[b,0],[b,b],[b-a,b]]
+            ])
+
+            self.start = [0,0,90-2.0,0,0,0] ; self.goal = [b,b,2.0,0,0,0]
+
 
         self.state_names = ["x", "y", "theta", "vx", "vy", "omega"]
 
@@ -270,7 +287,7 @@ class LQR_RRT_planner:
 
 # Main 
 if __name__ == "__main__":
-    a = LQR_RRT_planner(Qmat = np.diag([1,1,1,0.1,0.1,0.1])*2.0 , Rmat = np.diag([1,1,1,1])*0.1 , time_limit = 1.5, workspace=3)
+    a = LQR_RRT_planner(Qmat = np.diag([1,1,1,0.1,0.1,0.1])*0.5 , Rmat = np.diag([1,1,1,1])*1.0 , time_limit = 1.5, workspace=1)
     if a.generate_tree(p_goal=0.05, e = 20):
         a.trace_parents()
 

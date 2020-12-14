@@ -1,6 +1,16 @@
-#!/bin/sh
-python3 playback.py ../benchmarks/bench2/RUN_24
-python3 playback.py ../benchmarks/bench3/RUN_4 
-python3 playback.py ../benchmarks/w3_b1/RUN_26 
-python3 playback.py ../benchmarks/w3_b2/RUN_36 
+#!/bin/bash
+echo "***** Running state_penalized best results (fastest convergence) *****"
+for f in 1 2 3 4 5 6
+do
+	python3 playback.py ../benchmarks/states_penalised/$f
+done
+
+echo ""
+echo "**** Running control penalized fastest paths ****"
+for f in 1 2
+do
+	python3 playback.py ../benchmarks/control_penalised/$f
+done
+ 
+
 
