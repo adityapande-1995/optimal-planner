@@ -287,7 +287,7 @@ class LQR_RRT_planner:
 
 # Main 
 if __name__ == "__main__":
-    a = LQR_RRT_planner(Qmat = np.diag([1,1,1,0.1,0.1,0.1])*0.5 , Rmat = np.diag([1,1,1,1])*1.0 , time_limit = 1.5, workspace=1)
+    a = LQR_RRT_planner(Qmat = np.diag([1,1,1,0.1,0.1,0.1])*2.0 , Rmat = np.diag([1,1,1,1])*0.5 , time_limit = 1.5, workspace=1)
     if a.generate_tree(p_goal=0.05, e = 20):
         a.trace_parents()
 
