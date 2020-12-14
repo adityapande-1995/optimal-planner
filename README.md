@@ -1,3 +1,8 @@
+# LQR-RRT planner for raceline optimization
+This project aims to find the optimal racing line for a omni-drive four-wheeled robot using the LQR-RRT planner. Depending on the track to follow and the goal to reach, the geometrically shortest path between the robot and goal might not be the fastest, when dynamics are taken into account. THis project will try to find the fastest racing lines for some set of predefined tracks (workspaces). The demo video of the best performaces can be found [here](https://github.com/adityapande-1995/optimal-planner/blob/main/animations/best-runs.mp4). The last two simulations apply constraints on controls (tries to keep control inputs as low as possible), whereas the rest on states (forces faster convergence)
+
+![Animation for best runs](https://github.com/adityapande-1995/optimal-planner/blob/main/animations/best-runs-gif.gif)
+
 # Requirements
 
 benchmark.sh requires the command line utilities :
